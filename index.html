@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una preguntita ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#fff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+}
+
+.contenedor{
+    max-width:500px;
+    padding:20px;
+}
+
+img{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+h1{
+    color:#d63384;
+}
+
+.botones{
+    margin-top:20px;
+}
+
+button{
+    border:none;
+    border-radius:12px;
+    padding:15px 30px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+    margin:10px;
+}
+
+#si{
+    background:#28a745;
+    color:white;
+}
+
+#no{
+    background:#dc3545;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+
+<img id="gatito" src="https://cataas.com/cat" alt="Gatito">
+
+<h1>Quieres volver a intentarlo ana? (Di que si por fa)</h1>
+
+<div class="botones">
+    <button id="si">Sí </button>
+    <button id="no">No :⁠'⁠(</button>
+</div>
+
+</div>
+
+<script>
+let tamSi = 1;
+let tamNo = 1;
+
+const botonSi = document.getElementById("si");
+const botonNo = document.getElementById("no");
+const gatito = document.getElementById("gatito");
+
+botonNo.addEventListener("click",()=>{
+
+    tamSi += 0.25;
+    tamNo -= 0.12;
+
+    botonSi.style.transform = `scale(${tamSi})`;
+
+    if(tamNo > 0.2){
+        botonNo.style.transform = `scale(${tamNo})`;
+    }else{
+        botonNo.style.display = "none";
+    }
+
+    // Cambia el gatito
+    gatito.src = "https://cataas.com/cat?"+Math.random();
+});
+
+botonSi.addEventListener("click",()=>{
+    document.body.innerHTML=`
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;text-align:center;background:#ffe6f0;font-family:Arial;">
+        <img src="https://cataas.com/cat/cute?${Math.random()}" style="width:260px;border-radius:20px;">
+        <h1 style="color:#d63384;">si quieres mi niña?</h1>
+        <h2>por favor respóndeme los WhatsApp 😿, te extraño mucho, de verdad mi niña que te necesito. </h2>
+    </div>
+    `;
+});
+</script>
+
+</body>
+</html>
